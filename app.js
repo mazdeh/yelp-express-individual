@@ -12,11 +12,6 @@ app.use(express.static(__dirname + '/public'));
 
 // Read the file and send to the callback
  // Write the callback function
-function handleFile(err, data) {
-     if (err) throw err
-         var obj = JSON.parse(data)
-             // You can now play with your datas
-             }
 app.set('view engine', 'jade');
 
 // set where the static contents are (e.g., css, js)
@@ -56,12 +51,12 @@ app.get('/view/user/:user_id', function(req, res) {
 })
 
 app.get('/view/restaurant/:business_id', function(req, res) {
-    // TODO: lookup a restaurant by a business_id	var users = fs.readFile(users, handleFile)
+    // TODO: lookup a restaurant by a business_id	
     var restaurant =_.find(restaurants, { 'business_id': req.params.business_id })
-	console.log(users)
+	console.log(tips)
     res.render('viewRestaurant.jade', {
         restaurant: restaurant			
-		,users : users
+		,users : users, tips: tips
     })
 })
 

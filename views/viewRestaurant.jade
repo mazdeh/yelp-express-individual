@@ -3,6 +3,7 @@ extends layout
 block content 
 	- var item = restaurant 
 	- var usersJade = users
+	- var tipsJade = tips
 	h3(style = 'text-align: center')=item.name
 	div.row(style = 'text-align: center')
 		div.twelve.columns  #{item.city} , #{item.state}
@@ -11,10 +12,13 @@ block content
 		img(src='/images/rest.png')
 	br
 	h4(style = 'text-align: center; opacity: .5') Reviews
-	each user in usersJade
-		div.row
-			div.four.columns 
-				p  #{user.name}
-			div.two.columns comment/reviews
-			div.two.columns(style = 'color:black')
-				h4 &#10029&#10029&#10029
+	each user,i in usersJade
+		each tip,j in tipsJade 
+			if i === j
+				div.row
+					div.four.columns
+						p #{user.name} 
+					div.four.columns
+						p #{tip.text}
+					div.four.columns(style = 'color:black')
+						h4 &#10029&#10029&#10029
