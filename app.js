@@ -53,7 +53,7 @@ app.get('/view/user/:user_id', function(req, res) {
 app.get('/view/restaurant/:business_id', function(req, res) {
     // TODO: lookup a restaurant by a business_id	
     var restaurant =_.find(restaurants, { 'business_id': req.params.business_id })
-	console.log(tips)
+	
     res.render('viewRestaurant.jade', {
         restaurant: restaurant			
 		,users : users, tips: tips
@@ -63,8 +63,11 @@ app.get('/view/restaurant/:business_id', function(req, res) {
 app.get('/view/doctor/:business_id', function(req, res) {
     // TODO: lookup a doctor by a business_id
     var doctor =_.find(doctors, { 'business_id': req.params.business_id })
+    console.log(tips)
     res.render('viewDoctor.jade', {
-        doctor: doctor
+        doctor: doctor,
+        users: users,
+        tips: tips
     })
 })
 
