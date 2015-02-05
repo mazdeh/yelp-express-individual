@@ -1,6 +1,7 @@
 extends layout.jade
 
 block content
+<<<<<<< HEAD
     each item in restaurants   
         div.row
             div.eight.columns
@@ -10,4 +11,25 @@ block content
             div.four.columns
                 = item.stars
                 |  stars
+=======
+	div.row
+		div.three.columns
+			br
+		div.six.columns
+			br
+			h1 Restaurants
+			br
+			
+	each item in restaurants    
+		div.row
+			div.two.columns
+				img(src='/images/rest.png')
+			div.four.columns
+				a(href='/view/restaurant/'+item.business_id)
+					= item.name
+			div.three.columns
+				=item.city+', '+item.state
+			div.two.columns(style='color: red')
+				= item.stars+ " Stars"
+>>>>>>> a0c7cec2c7cbfdff639ce31051b6e8fd12c7e3fa
 
