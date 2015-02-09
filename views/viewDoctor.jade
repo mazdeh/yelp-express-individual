@@ -6,32 +6,39 @@ block content
 	- var tipsJade = tips
 	br
 	br
-	h3(style='text-align: center')= item.name
-	div.row(style = 'text-align: center')
-		div.twelve.columns
-			=item.categories
-	br
-	div.row(style="text-align: center")
-		img(src='/images/doctor.jpg')
-	br
-	div.row
-		div.column.three(style="color: green; font-weight: bold;")
-			if (item.open)
-				div.column.one(style="background-color: green;")
-				| Open
-			else
-				| Closed
-		div.column.three
-			if (item.attributes["By Appointment Only"])
-				| By Appointment Only
-	br
-	div.row(style="text-align: center")
-		div.column.three
-			=item.city+','+ item.state
-	div.row(style="text-align: center")
-		div.column.four
-			="Full Address: "+item.full_address
+	div#example-grid
+		div.row
+			div.three.columns 
+				img(src='/images/doctor_view.png')
+			br
+			h3(style='text-align: center')= item.name
+			h5(style='text-align: center;color: green')=item.city+','+ item.state
+			h6(style='text-align: center;color: red; font-weight:bold')='*** '+item.stars+' Stars'+' *** '
 
+			div.nine.columns(style='text-align: center')
+				div.row
+					div.three.columns 
+						b Categories :
+					div.nine.columns
+						=item.categories[0]+" , "+item.categories[1]
+				div.row
+					div.three.columns
+						b Reservations :
+					div.three.columns(style='color: green')
+						if (item.open)
+							b| Open
+						else
+							b| Closed
+					div.six.columns 
+						if (item.attributes["By Appointment Only"])
+							| By Appointment Only
+						else 
+							| --
+				div.row
+					div.three.columns
+						b Full Address : 
+					div.nine.columns
+						=item.full_address
 	br
 	br
 
@@ -46,3 +53,6 @@ block content
 						p #{tip.text}
 					div.four.columns(style = 'color:black')
 						h4 &#10029&#10029&#10029
+
+
+	
